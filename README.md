@@ -2,13 +2,13 @@
 
 Nome dos membros: 
 
-                  Allana
+                  Allana Sílvia Gadêlha de Carvalho(Allana-Gadêlha)
                   
                   Carlos
                   
-                  Drielly
+                  Drielly Santiago dos Santos(EllySantiago)
                   
-                  Everton
+                  Everton Nunes Batista(Everton-creator)
                   
                   Lara
                   
