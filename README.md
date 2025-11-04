@@ -1,6 +1,7 @@
 # Jogo
 
-Nome dos membros: Allana
+Nome dos membros: 
+                  Allana
                   
                   Carlos
                   
