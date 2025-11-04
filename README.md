@@ -1,11 +1,17 @@
 # Jogo
 
 Nome dos membros: Allana
+                  
                   Carlos
+                  
                   Drielly
+                  
                   Everton
+                  
                   Lara
+                  
                   Nicolas
+                 
                   Samara Mendonça Nunes(Samara020)
 
 
