@@ -17,6 +17,6 @@ Nome dos membros:
                   Samara Mendonça Nunes(Samara020)
 
 
-Nome da disciplina: Programação Imperativa e Funcional - 2025.2 e Lógica para Computação - 2025.2
+Nome das disciplinas: Programação Imperativa e Funcional - 2025.2 e Lógica para Computação - 2025.2
 
 Nome da instituição de ensino: CESAR School.
