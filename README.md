@@ -10,7 +10,7 @@ Nome dos membros:
                   
                   Everton Nunes Batista(Everton-creator)
                   
-                  Lara
+                  Lara Thaylanne Ho da Silva(larathaylanne)
                   
                   Nicolas de Castro Albuquerque Natario(Nicolasnat)
                  
