@@ -4,7 +4,7 @@ Nome dos membros:
 
                   Allana Sílvia Gadêlha de Carvalho(Allana-Gadêlha)
                   
-                  Carlos
+                  Carlos Henrique Gonçalves da Silva(Carlos-HenriqueDev)
                   
                   Drielly Santiago dos Santos(EllySantiago)
                   
