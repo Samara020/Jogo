@@ -12,7 +12,7 @@ Nome dos membros:
                   
                   Lara
                   
-                  Nicolas
+                  Nicolas de Castro Albuquerque Natario(Nicolasnat)
                  
                   Samara Mendonça Nunes(Samara020)
 
