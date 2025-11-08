@@ -52,8 +52,8 @@ make --version
 Se não estiverem, instale com:
 
 ```bash
-sudo apt install build-essential```
-
+sudo apt install build-essential
+```
 Clonando o repositório
 
 ```bash
@@ -72,7 +72,7 @@ Para limpar builds antigos:
 ```bash
 make clean
 ```
-###Executando no Linux/macOS
+### Executando no Linux/macOS
 
 Entre na pasta ```build``` e execute:
 ```bash
