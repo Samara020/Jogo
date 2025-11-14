@@ -1,103 +1,104 @@
 #include "batalha.h"
-#include <ctype.h>
 
-// ==================== EFEITOS ====================
-
-void textoAnimado(const char *texto, int delay) {
-    for (int i = 0; texto[i] != '\0'; i++) {
-        printf("%c", texto[i]);
+void textoAnimado(const char *txt, int tempo) {
+    while (*txt) {
+        printf("%c", *txt++);
         fflush(stdout);
-        usleep(delay * 1000);
+        usleep(tempo);
     }
-    printf("\n");
 }
-
-void exibirDesenhoJogador() {
-    printf(GREEN "\n  (🔥)\n  /|\\\n  / \\\n" RESET);
-}
-
-void exibirDesenhoInimigo() {
-    printf(RED "\n  (💀)\n  /|\\\n  / \\\n" RESET);
-}
-
-// ==================== QUESTÕES ====================
-
-typedef struct {
-    char pergunta[200];
-    char alternativaA[100];
-    char alternativaB[100];
-    char alternativaC[100];
-    char correta;
-} Questao;
-
-Questao perguntas[] = {
-    {"Qual das proposições é logicamente equivalente a ¬(P ∨ Q)?",
-     "A) ¬P ∨ ¬Q", "B) ¬P ∧ ¬Q", "C) P ∧ Q", 'B'},
-
-    {"Qual é a negação de (P → Q)?",
-     "A) P ∧ ¬Q", "B) ¬P ∨ Q", "C) ¬P ∧ ¬Q", 'A'},
-
-    {"A bicondicional (P ↔ Q) é verdadeira quando:",
-     "A) P e Q têm valores opostos", "B) P e Q têm o mesmo valor lógico", "C) Q é sempre verdadeiro", 'B'},
-
-    {"Qual das expressões é equivalente a ¬(P ∧ ¬Q)?",
-     "A) ¬P ∧ Q", "B) ¬P ∨ Q", "C) P ∧ Q", 'B'}
-};
-
-// ==================== STATUS ====================
 
 void exibirStatus(const Jogador *j, const Inimigo *i) {
-    printf(CYAN "\n======= STATUS =======\n" RESET);
-    printf(GREEN "%s" RESET " ❤️ Vida: %d | 🧠 Acertos: %d\n", j->nome, j->vida, j->acertos);
-    printf(RED "%s" RESET " 💀 Vida: %d\n", i->nome, i->vida);
-    printf(CYAN "======================\n" RESET);
+    printf(CYAN BOLD "\n======= STATUS =======\n" RESET);
+    printf(GREEN "JOGADOR: %s\nVida: %d\n" RESET, j->nome, j->vida);
+    printf(RED   "INIMIGO: %s\nVida: %d\n" RESET, i->nome, i->vida);
+    printf(CYAN BOLD "=======================\n\n" RESET);
 }
 
-// ==================== BATALHA ====================
+int perguntas(int nivel) {
+    char resposta[50];
+
+    switch (nivel) {
+        case 1:
+            printf(RED "traduza a voz do corrompido para linguagem lógica para liberta-lo:\n" RESET);
+            printf(YELLOW "Voz do corrompido: Se você me atacar, então eu irei revidar\n> " RESET);
+            printf("Guilherme:");
+            scanf(" %49s", resposta);
+            return strstr(resposta, "->") != NULL;
+
+        case 2:
+            printf(YELLOW "Voz do corrompido: Você só passará por mim se e somente se me derrotar!\n> " RESET);
+            printf("Guilherme:");
+            scanf(" %49s", resposta);
+            return strstr(resposta, "<->") != NULL;
+
+        case 3: {
+            printf(YELLOW "Voz do corrompido: Nessa batalha, você morre ou eu morro! \n> " RESET);
+            printf("Guilherme:");
+            scanf(" %49s", resposta);
+
+            int t = strlen(resposta);
+
+            if (t == 1 && (resposta[0] == 'v' || resposta[0] == 'V'))
+                return 1;
+
+            if (t == 3 &&
+                isalpha(resposta[0]) &&
+                (resposta[1] == 'v' || resposta[1] == 'V') &&
+                isalpha(resposta[2]))
+                return 1;
+
+            return 0;
+        }
+
+        case 4:
+            printf(YELLOW "Voz do corrompido: Nessa luta, você vai para o inferno e eu também irei \n> " RESET);
+            printf("Guilherme:");
+            scanf(" %49s", resposta);
+            return strstr(resposta, "^") != NULL;
+
+        case 5:
+            printf(YELLOW "Voz do corrompido: Se você me matar, então nunca mais verá Diego!\n> " RESET);
+            scanf(" %49s", resposta);
+            return strstr(resposta, "->") != NULL;
+
+        default:
+            return 0;
+    }
+}
 
 void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
-    srand(time(NULL));
-    int totalQuestoes = sizeof(perguntas) / sizeof(perguntas[0]);
-    int rodada = 0;
+    textoAnimado(MAGENTA "\nA batalha começou...\n\n" RESET, 20000);
+    exibirStatus(jogador, inimigo);
 
-    textoAnimado("🔥 A batalha da razão começa! 🔥", 40);
-    exibirDesenhoJogador();
-    exibirDesenhoInimigo();
+    for (int nivel = 1; nivel <= 5; nivel++) {
+        printf(CYAN BOLD "\nDesafio de Lógica %d:\n" RESET, nivel);
 
-    while (jogador->vida > 0 && inimigo->vida > 0 && rodada < totalQuestoes) {
-        Questao q = perguntas[rodada];
-        printf("\n🧩 Desafio Lógico %d:\n%s\n", rodada + 1, q.pergunta);
-        printf("%s\n%s\n%s\n", q.alternativaA, q.alternativaB, q.alternativaC);
-        printf("Sua resposta (A, B ou C): ");
-
-        char resposta;
-        scanf(" %c", &resposta);
-        resposta = toupper(resposta);
-
-        if (resposta == q.correta) {
-            textoAnimado(GREEN "✔ Resposta correta!" RESET, 25);
-            int dano = jogador->ataque + (rand() % 6);
+        if (perguntas(nivel)) {
+            printf(GREEN BOLD "\n✔ Resposta correta!\n" RESET);
+            int dano = jogador->ataque + (5 * nivel);
             inimigo->vida -= dano;
+            printf(GREEN "Você causou %d de dano!\n" RESET, dano);
             jogador->acertos++;
-            printf(YELLOW "💥 %s acerta o inimigo e causa %d de dano!\n" RESET, jogador->nome, dano);
         } else {
-            textoAnimado(RED "❌ Errado! O inimigo contra-ataca!" RESET, 25);
-            int dano = inimigo->ataque + (rand() % 4);
+            printf(RED BOLD "\n✖ Resposta incorreta!\n" RESET);
+            int dano = inimigo->ataque + (3 * nivel);
             jogador->vida -= dano;
-            printf(RED "💀 %s causa %d de dano em você!\n" RESET, inimigo->nome, dano);
+            printf(RED "Você recebeu %d de dano!\n" RESET, dano);
         }
 
         exibirStatus(jogador, inimigo);
-        rodada++;
-        sleep(1);
+
+        if (jogador->vida <= 0) {
+            textoAnimado(RED "\nVocê caiu nas sombras... o Princeso Diego continuará perdido.\n" RESET, 20000);
+            return;
+        }
+
+        if (inimigo->vida <= 0) {
+            textoAnimado(GREEN "\nA luz prevalece! O inimigo foi derrotado.\n" RESET, 20000);
+            return;
+        }
     }
 
-    if (jogador->vida <= 0) {
-        textoAnimado(RED "\n💀 Você foi consumido pela escuridão...\n" RESET, 40);
-    } else if (inimigo->vida <= 0) {
-        textoAnimado(GREEN "\n🏆 Vitória! Sua lógica purificou o inimigo!\n" RESET, 40);
-    } else {
-        textoAnimado(CYAN "\n⚔️ A batalha terminou, mas a guerra da razão continua...\n" RESET, 40);
-    }
+    textoAnimado(YELLOW "\nO destino foi decidido...\n" RESET, 20000);
 }
-
