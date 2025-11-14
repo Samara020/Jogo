@@ -4,10 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
-#include <unistd.h> // para sleep e usleep
+#include <ctype.h>
+#include <unistd.h>
 
-// Cores ANSI
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -16,7 +15,6 @@
 #define MAGENTA "\033[35m"
 #define BOLD    "\033[1m"
 
-// Estruturas
 typedef struct {
     char nome[50];
     int vida;
@@ -31,11 +29,9 @@ typedef struct {
     int ataque;
 } Inimigo;
 
-// Funções
 void iniciarBatalha(Jogador *jogador, Inimigo *inimigo);
 void exibirStatus(const Jogador *j, const Inimigo *i);
-void textoAnimado(const char *texto, int delay);
-void exibirDesenhoInimigo();
-void exibirDesenhoJogador();
+int perguntas(int nivel);
+void textoAnimado(const char *txt, int tempo);
 
 #endif
