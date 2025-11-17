@@ -1,7 +1,7 @@
 # Jogo
 ## 🌌 The Last Equivalence: Lumen of Diego
 ### 1. Nome e sobrenome dos membros do projeto e seus respectivos usuários no GitHub
-```
+
 - Allana Sílvia Gadêlha de Carvalho — [@Allana-Gadêlha](https://github.com/Allana-Gadelha)  
 - Carlos Henrique Gonçalves da Silva — [@Carlos-HenriqueDev](https://github.com/Carlos-HenriqueDev)  
 - Drielly Santiago dos Santos — [@EllySantiago](https://github.com/EllySantiago)  
@@ -9,7 +9,7 @@
 - Lara Thaylanne Ho da Silva — [@larathaylanne](https://github.com/larathaylanne)  
 - Nicolas de Castro Albuquerque Natario — [@Nicolasnat](https://github.com/Nicolasnat)  
 - Samara Mendonça Nunes — [@Samara020](https://github.com/Samara020)  
-```
+
 
 * **Samara Mendonça Nunes** — @Samara020
 ### 2. Nome da disciplina
