@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "screen.h"
+#include "timer.h"
 #include "historia.h"
 #include "batalha.h"
-#include "timer.h"
 
 extern void textoAnimado(const char *txt, int tempo);
 
