@@ -110,7 +110,7 @@ cd build
 ### 6. Breve descrição do jogo, incluindo as regras e como interagir com ele
 The Last Equivalence: Lumen of Diego é um jogo de aventura lógica ambientado em um mundo mergulhado em trevas, onde apenas a razão e a última chama da humanidade resistem, e a sua missão é recuperar a lingua perdida.
 
-Você controla Guilherme, o renascido da chama, guiado pela luz do ser superior Diego — a última chama viva, roubada e aprisionada por uma entidade corrompida. Sua missão é recuperar a linguagem perdida 
+Você controla Guilherme, o renascido da chama, guiado pela luz do ser superior Diego — a última chama viva, roubada e aprisionada por uma entidade corrompida. Sua missão é recuperar a linguagem perdida (a lógica), e assim liberar as memorias de sua civilização.
 
 #### 🎮 Regras e Interação
 
