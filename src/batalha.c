@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include "batalha.h"
 #include "timer.h"
 #include "screen.h"
-#include "batalha.h"
 
 void textoAnimado(const char *txt, int tempo) {
     while (*txt) {
@@ -139,8 +139,4 @@ void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
         }
     }
 
-    textoAnimado(C_YELLOW "\nO destino foi decidido...\n" C_RESET, 20000);
-
-    if (jogador->vida <= 0)
-        mostrarGameOver();
 }
