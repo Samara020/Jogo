@@ -15,7 +15,6 @@ void textoAnimado(const char *txt, int tempo) {
 }
 
 void exibirStatus(const Jogador *j, const Inimigo *i) {
-    screenClear();
     printf(C_CYAN C_BOLD "\n======= STATUS =======\n" C_RESET);
     printf(C_GREEN "JOGADOR: %s\nVida: %d\n" C_RESET, j->nome, j->vida);
     printf(C_RED   "INIMIGO: %s\nVida: %d\n" C_RESET, i->nome, i->vida);
@@ -97,6 +96,7 @@ void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
         int vidaAntesInimigo = inimigo->vida;
 
         if (perguntas(nivel)) {
+            screenClear();
             printf(C_GREEN C_BOLD "\n✔ Resposta correta!\n" C_RESET);
             int dano = jogador->ataque + (5 * nivel);
             inimigo->vida -= dano;
@@ -107,11 +107,13 @@ void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
             } else {
                 int perdeu = vidaAntesInimigo - inimigo->vida;
                 printf(C_GREEN "O inimigo perdeu %d de vida.\n" C_RESET, perdeu);
+                exibirStatus(jogador, inimigo);
             }
 
             jogador->acertos++;
 
         } else {
+            screenClear();
             printf(C_RED C_BOLD "\n✖ Resposta incorreta!\n" C_RESET);
             int dano = inimigo->ataque + (3 * nivel);
             jogador->vida -= dano;
@@ -122,6 +124,7 @@ void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
             } else {
                 int perdeu = vidaAntesJogador - jogador->vida;
                 printf(C_RED "Você perdeu %d de vida.\n" C_RESET, perdeu);
+                exibirStatus(jogador, inimigo);
             }
         }
 
