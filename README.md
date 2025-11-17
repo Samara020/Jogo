@@ -11,7 +11,6 @@
 - Samara Mendonça Nunes — [@Samara020](https://github.com/Samara020)  
 
 
-* **Samara Mendonça Nunes** — @Samara020
 ### 2. Nome da disciplina
 Programação Imperativa e Funcional – 2025.2
 
