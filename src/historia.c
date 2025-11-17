@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "historia.h"
 #include "screen.h"
+#include "historia.h"
 #include "batalha.h"
 #include "timer.h"
 
@@ -54,4 +54,7 @@ void iniciar_historia(Jogador *j, Inimigo *i) {
     printf("   ██║   ██║  ██║███████╗    ███████╗██║  ██║███████║   ██║       ███████╗╚██████╔╝╚██████╔╝██║ ╚████╔╝ ██║  ██║███████╗███████╗██║ ╚████║╚██████╗███████╗\n");
     printf("   ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚══════╝ ╚══▀▀═╝  ╚═════╝ ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝ ╚═════╝╚══════╝\n");
     printf("LUMEN OF DIEGO");
+
+    timerInit(1000);
+    while (!timerTimeOver());
 }
