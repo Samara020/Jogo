@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "batalha.h"
 #include "timer.h"
 #include "screen.h"
+#include "batalha.h"
 
 void textoAnimado(const char *txt, int tempo) {
     while (*txt) {
