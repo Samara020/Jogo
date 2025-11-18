@@ -114,7 +114,7 @@ Você controla Guilherme, o renascido da chama, guiado pela luz do ser superior 
 
 #### 🎮 Regras e Interação
 
-Movimente-se e interaja usando o teclado.
+Interaja usando o teclado.
 
 Enfrente inimigos respondendo desafios de lógica.
 
