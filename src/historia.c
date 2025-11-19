@@ -4,9 +4,7 @@
 #include "historia.h"
 #include "batalha.h"
 
-extern void textoAnimado(const char *txt, int tempo);
-
-void iniciar_historia(Jogador *j, Inimigo *i) {
+void iniciar_historia() {
     textoAnimado("\n[NARRADOR]", 40000);
     textoAnimado("Ha milenios, o mundo de Silogia era regido pela Lingua da Logica.", 40000);
     textoAnimado("Um idioma puro — onde cada palavra nascia verdadeira... ou morria falsa.", 40000);
@@ -25,13 +23,6 @@ void iniciar_historia(Jogador *j, Inimigo *i) {
 
     textoAnimado("\nDas ruinas da coerencia, ergue-se um jovem:", 40000);
     textoAnimado("Guilherme — o ultimo aprendiz da Razao.", 40000);
-    textoAnimado("Nascido da ultima centelha do princeso Diego.", 40000);
-    textoAnimado("Com a chama da clareza em maos, enfrentara os ecos da mentira,", 40000);
-    textoAnimado("para restaurar o idioma perdido: a Logica Proposicional.", 40000);
-
-    timerInit(2000);
-    while (!timerTimeOver());
-
     screenClear();
 
     textoAnimado("Sua missao: resgatar o Princeso Diego, perdido nas trevas da contradicao.", 40000);
@@ -47,14 +38,14 @@ void iniciar_historia(Jogador *j, Inimigo *i) {
     
     screenClear();
 
-    printf("████████╗██╗  ██╗███████╗    ██╗      █████╗ ███████╗████████╗    ███████╗ ██████╗ ██╗   ██╗██╗██╗   ██╗ █████╗ ██╗     ███████╗███╗   ██╗ ██████╗███████╗\n");
-    printf("╚══██╔══╝██║  ██║██╔════╝    ██║     ██╔══██╗██╔════╝╚══██╔══╝    ██╔════╝██╔═══██╗██║   ██║██║██║   ██║██╔══██╗██║     ██╔════╝████╗  ██║██╔════╝██╔════╝\n");
-    printf("   ██║   ███████║█████╗      ██║     ███████║███████╗   ██║       █████╗  ██║   ██║██║   ██║██║██║   ██║███████║██║     █████╗  ██╔██╗ ██║██║     █████╗  \n");
-    printf("   ██║   ██╔══██║██╔══╝      ██║     ██╔══██║╚════██║   ██║       ██╔══╝  ██║▄▄ ██║██║   ██║██║╚██╗ ██╔╝██╔══██║██║     ██╔══╝  ██║╚██╗██║██║     ██╔══╝  \n");
-    printf("   ██║   ██║  ██║███████╗    ███████╗██║  ██║███████║   ██║       ███████╗╚██████╔╝╚██████╔╝██║ ╚████╔╝ ██║  ██║███████╗███████╗██║ ╚████║╚██████╗███████╗\n");
-    printf("   ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚══════╝ ╚══▀▀═╝  ╚═════╝ ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝ ╚═════╝╚══════╝\n");
+    printf("██╗      █████╗ ███████╗████████╗    ███████╗ ██████╗ ██╗   ██╗██╗██╗   ██╗ █████╗ ██╗     ███████╗███╗   ██╗ ██████╗███████╗\n");
+    printf("██║     ██╔══██╗██╔════╝╚══██╔══╝    ██╔════╝██╔═══██╗██║   ██║██║██║   ██║██╔══██╗██║     ██╔════╝████╗  ██║██╔════╝██╔════╝\n");
+    printf("██║     ███████║███████╗   ██║       █████╗  ██║   ██║██║   ██║██║██║   ██║███████║██║     █████╗  ██╔██╗ ██║██║     █████╗  \n");
+    printf("██║     ██╔══██║╚════██║   ██║       ██╔══╝  ██║▄▄ ██║██║   ██║██║╚██╗ ██╔╝██╔══██║██║     ██╔══╝  ██║╚██╗██║██║     ██╔══╝  \n");
+    printf("███████╗██║  ██║███████║   ██║       ███████╗╚██████╔╝╚██████╔╝██║ ╚████╔╝ ██║  ██║███████╗███████╗██║ ╚████║╚██████╗███████╗\n");
+    printf("╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚══════╝ ╚══▀▀═╝  ╚═════╝ ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝ ╚═════╝╚══════╝\n");
     printf("LUMEN OF DIEGO");
 
-    timerInit(1000);
+    timerInit(2000);
     while (!timerTimeOver());
 }
