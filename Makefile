@@ -5,24 +5,24 @@ CFLAGS = -Wall -Wextra -std=c11 -I$(IDIR)
 ODIR = obj
 LIBS = -lm
 
-_DEPS = batalha.h historia.h keyboard.h screen.h timer.h batalha_final.h historia_final.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
-
-_SRC = main.c batalha.c historia.c keyboard.c screen.c timer.c batalha_final.c historia_final.c
-OBJ = $(patsubst %,$(ODIR)/%.o,$(_SRC:.c=.o))
+SRC = $(wildcard src/*.c)
+OBJ = $(patsubst src/%.c,$(ODIR)/%.o,$(SRC))
 
 EXEC = jogo
 
-$(ODIR)/%.o: src/%.c $(DEPS)
-    $(CC) -c -o $@ $< $(CFLAGS)
+all: $(EXEC)
+
+$(ODIR):
+	mkdir -p $(ODIR)
+
+$(ODIR)/%.o: src/%.c | $(ODIR)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
 $(EXEC): $(OBJ)
-    $(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
-.PHONY: clean run
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
-    rm -f $(ODIR)/*.o *~ core
+	rm -f $(ODIR)/*.o $(EXEC)
 
 run: $(EXEC)
-    ./$(EXEC)
+	./$(EXEC)
