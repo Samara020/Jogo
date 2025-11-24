@@ -1,4 +1,5 @@
 #include "batalha.h"
+#include "som.h"
 
 void inicializarJogador(Jogador *j, int capacidade) {
     j->capacidadeRegistro = capacidade;
@@ -34,6 +35,7 @@ void exibirStatus(const Jogador *j, const Inimigo *i) {
 }
 
 void mostrarGameOver() {
+    tocarGameOver();
     printf(C_RED C_BOLD "\n");
     printf(" ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ \n");
     printf("██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗\n");
@@ -69,14 +71,16 @@ int perguntas(int nivel) {
 
             int t = strlen(resposta);
 
-            if (t == 1 && (resposta[0] == 'v' || resposta[0] == 'V'))
+            if (t == 1 && (resposta[0] == 'v' || resposta[0] == 'V')) {
                 return 1;
+            }
 
             if (t == 3 &&
                 isalpha(resposta[0]) &&
                 (resposta[1] == 'v' || resposta[1] == 'V') &&
-                isalpha(resposta[2]))
+                isalpha(resposta[2])) {
                 return 1;
+            }
 
             return 0;
         }
@@ -130,6 +134,7 @@ void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
         } else {
             screenClear();
             printf(C_RED C_BOLD "\n✖ Resposta incorreta!\n" C_RESET);
+            tocarRespostaErrada();
             int dano = inimigo->ataque + (3 * nivel);
             jogador->vida -= dano;
             
@@ -155,6 +160,7 @@ void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
         }
 
         if (inimigo->vida <= 0) {
+            tocarVitoria();
             textoAnimado(C_GREEN "\nA luz prevalece! O inimigo foi derrotado.\n" C_RESET, 20000);
             finalizarJogador(jogador);
             return;

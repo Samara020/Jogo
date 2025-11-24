@@ -1,3 +1,5 @@
+#include <unistd.h>
+
 #include "batalha.h"
 #include "historia.h"
 #include "som.h"
@@ -10,5 +12,6 @@ int main() {
     tocarAudioTemaFundo();
     iniciar_historia();
     iniciarBatalha(&j, &i);
+    sleep((5));
     return 0;
 }

@@ -56,5 +56,24 @@ void tocarEfeitoSonoroPasso() {
 }
 
 void tocarGameOver() {
-    Mix_Chunk *gameOver = Mix_LoadWAV("assets/gameover.mp3");
+    Mix_Music *gameOver = Mix_LoadMUS("assets/gameover.mp3");
+
+    if (gameOver) {
+        Mix_PlayMusic(gameOver, 0);
+    }
+}
+
+void tocarVitoria() {
+    Mix_Music *vitoria = Mix_LoadMUS("assets/win.mp3");
+
+    if (vitoria) {
+        Mix_PlayMusic(vitoria, 0);
+    }
+}
+
+void tocarRespostaErrada() {
+    Mix_Chunk *respostaErrada = Mix_LoadWAV("assets/wrong-answer.mp3");
+    if (respostaErrada) {
+        Mix_PlayChannel(-1, respostaErrada, 0);
+    }
 }

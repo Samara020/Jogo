@@ -8,7 +8,9 @@
 int inicializarAudio();
 void encerrarAudio();
 void tocarAudioTemaFundo();
-void tocarAudioTemaLuta();
+void tocarGameOver();
+void tocarVitoria();
+void tocarRespostaErrada();
 void tocarEfeitoSonoroPasso();
 
 #endif //JOGO_SOM_H
