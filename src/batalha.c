@@ -220,7 +220,6 @@ void iniciarBatalha(Jogador *jogador, Inimigo *inimigo) {
             int dano = jogador->ataque + (5 * nivel);
             inimigo->vida -= dano;
 
-            // REMOVA o if (nivel == 1) - mostre sempre a arte ASCII
             printf(C_GREEN "Voce causou %d de dano!\n" C_RESET, dano);
             fflush(stdout);
             sleep(1);
@@ -265,7 +264,6 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
                 jogador->entradasAtuais++;
             }
 
-            // REMOVA o if (nivel == 1) - mostre sempre a arte ASCII
             printf(C_RED "Voce recebeu %d de dano!\n" C_RESET, dano);
             fflush(stdout);
             sleep(1);
