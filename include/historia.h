@@ -2,5 +2,6 @@
 #define HISTORIA_H
 
 void iniciar_historia();
+void historiaFinal();
 
 #endif
