@@ -47,12 +47,12 @@ void contextualizacaoFinal() {
     printf("⠻⢷⣌⣥⣏⣞⢤⢄⣠⣿⣿⣿⣿⣿⠟⠀⠀⠀⠓⠀⠀⠀⢨⠯⠑⡤⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⢀⢴⣒⢯⢩⠝⠟⣒⡪⣯⡬⣗⣦⡄\n");
 
 
-         printf("\033[5;81H");
+    printf("\033[5;81H");
     textoAnimado("Criatura: Pobre criança, portadora de uma pequena luz lógica,", 50000);
     
     printf("\033[7;81H");
     textoAnimado("Relembrar a antiga língua lógica não os salvará!", 50000);
-    printf("\033[8;81H"); // Continuação na linha de baixo, mesma coluna
+    printf("\033[8;81H"); 
     textoAnimado("A luz já acabou e Diego nunca mais voltará!", 50000);
     
     printf("\033[10;81H");
@@ -92,7 +92,12 @@ void contextualizacaoFinal() {
 }
 
 int perguntaFinalUnica(int n) {
-    char resposta[256];
+    char *resposta = malloc(256 * sizeof(char));
+    if (!resposta) {
+        printf("Erro ao alocar memória!\n");
+        exit(1);
+    }
+
     screenClear();
     textoAnimado("DESAFIO FINAL - A ÚLTIMA EQUIVALÊNCIA\n\n", 15000);
     
@@ -168,20 +173,28 @@ int perguntaFinalUnica(int n) {
         textoAnimado("Mostre uma equivalência válida para ~(p -> q).", 15000);
     }
 
-    // Posiciona o input também ao lado (Linha 16, Coluna 81)
+
     printf("\033[16;81H");
     printf("Guilherme: ");
     fflush(stdout);
-    if (!fgets(resposta, sizeof(resposta), stdin)) return 0;
+    if (!fgets(resposta, 256, stdin)) {
+        free(resposta);
+        return 0;
+    }
+
     size_t len = strlen(resposta);
-    if (len > 0 && resposta[len-1] == '\n') resposta[len-1] = '\0';
+    if (len > 0 && resposta[len-1] == '\n'){
+        resposta[len-1] = '\0';
+    }
 
     if (strstr(resposta, "~p^~q") || strstr(resposta, "~p ^ ~q") || strstr(resposta, "DeMorgan") ||
         strstr(resposta, "~pv~q") || strstr(resposta, "~(p^q)") || strstr(resposta, "~pvq") ||
         strstr(resposta, "equivalente") || strstr(resposta, "p->q") || strstr(resposta, "p -> q") ||
         strstr(resposta, "p<->q") || strstr(resposta, "<->") || strstr(resposta, "->")) {
+        free(resposta);
         return 1;
     }
+    free(resposta);
     return 0;
 }
 
@@ -220,7 +233,6 @@ void iniciarBatalhaFinal(Jogador *jogador) {
             textoAnimado(C_RED "Você errou... sua luz enfraquece..." C_RESET, 50000);
         }
         
-        // Pausa para o jogador ler o feedback antes de limpar a tela
         timerInit(2000);
         while (!timerTimeOver());
         
