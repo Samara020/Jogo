@@ -24,7 +24,6 @@ int inicializarAudio() {
         return 0; // Falha
     }
 
-    printf("Subsistema de áudio inicializado com sucesso!\n");
     return 1; // Sucesso
 }
 
