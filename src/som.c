@@ -33,3 +33,29 @@ void encerrarAudio() {
     Mix_Quit();
     SDL_Quit();
 }
+
+void tocarAudioTemaFundo() {
+    Mix_VolumeMusic(24);
+    Mix_Music *musicaFundo = Mix_LoadMUS("assets/background-theme.mp3");
+    if (musicaFundo) {
+        Mix_PlayMusic(musicaFundo, -1);
+    }
+}
+
+void tocarAudioTemaLuta() {
+    Mix_VolumeMusic(24);
+    Mix_Music *musicaFundo = Mix_LoadMUS("assets/background-theme.mp3");
+    if (musicaFundo) {
+        Mix_PlayMusic(musicaFundo, -1);
+    }
+}
+
+void tocarEfeitoSonoroPasso() {
+    Mix_Chunk *passos = Mix_LoadWAV("assets/steps.wav");
+
+    Mix_PlayChannel(-1,passos,-1);
+}
+
+void tocarGameOver() {
+    Mix_Chunk *gameOver = Mix_LoadWAV("assets/gameover.mp3");
+}
