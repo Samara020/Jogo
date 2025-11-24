@@ -5,15 +5,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <unistd.h>
+#include "timer.h" 
+#include "screen.h"
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define CYAN    "\033[36m"
-#define MAGENTA "\033[35m"
-#define BOLD    "\033[1m"
+#define C_RESET  "\033[0m"
+#define C_RED    "\033[31m"
+#define C_GREEN  "\033[32m"
+#define C_YELLOW "\033[33m"
+#define C_CYAN   "\033[36m"
+#define C_MAGENTA "\033[35m"
+#define C_BOLD   "\033[1m"
 
 typedef struct {
     char nome[50];
@@ -21,6 +22,9 @@ typedef struct {
     int ataque;
     int defesa;
     int acertos;
+    int *registroDanoRecebido;
+    int capacidadeRegistro;
+    int entradasAtuais;
 } Jogador;
 
 typedef struct {
@@ -29,6 +33,9 @@ typedef struct {
     int ataque;
 } Inimigo;
 
+void inicializarJogador(Jogador *j, int capacidade);
+void finalizarJogador(Jogador *j);
+void mostrarGameOver();
 void iniciarBatalha(Jogador *jogador, Inimigo *inimigo);
 void exibirStatus(const Jogador *j, const Inimigo *i);
 int perguntas(int nivel);
