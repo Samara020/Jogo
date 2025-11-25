@@ -2,6 +2,8 @@
 #include "batalha_final.h"
 #include <unistd.h>
 
+#include "som.h"
+
 void inicializarJogador(Jogador *j, int capacidade) {
     j->capacidadeRegistro = capacidade;
     j->entradasAtuais = 0;
@@ -255,6 +257,7 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
         } else {
             screenClear();
+            tocarRespostaErrada();
             printf(C_RED C_BOLD "\n✖ Resposta incorreta!\n" C_RESET);
             int dano = inimigo->ataque + (3 * nivel);
             jogador->vida -= dano;
@@ -298,6 +301,7 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
         if (jogador->vida <= 0) {
             mostrarGameOver();
+            tocarGameOver();
             fflush(stdout);
             sleep(1);
 printf("                                                                       \n");
@@ -328,6 +332,7 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀
         }
 
         if (inimigo->vida <= 0) {
+            tocarVitoria();
             textoAnimado(C_GREEN "\nA luz prevalece! O inimigo foi derrotado.\n" C_RESET, 20000);
             fflush(stdout);
             sleep(1);

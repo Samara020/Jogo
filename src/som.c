@@ -41,20 +41,6 @@ void tocarAudioTemaFundo() {
     }
 }
 
-void tocarAudioTemaLuta() {
-    Mix_VolumeMusic(24);
-    Mix_Music *musicaFundo = Mix_LoadMUS("assets/background-theme.mp3");
-    if (musicaFundo) {
-        Mix_PlayMusic(musicaFundo, -1);
-    }
-}
-
-void tocarEfeitoSonoroPasso() {
-    Mix_Chunk *passos = Mix_LoadWAV("assets/steps.wav");
-
-    Mix_PlayChannel(-1,passos,-1);
-}
-
 void tocarGameOver() {
     Mix_Music *gameOver = Mix_LoadMUS("assets/gameover.mp3");
 

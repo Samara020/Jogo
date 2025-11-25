@@ -40,6 +40,7 @@ Certifique-se de ter instalado:
 ⚙️ GCC (compilador C)
 🧰 Make
 📦 Biblioteca CLI-lib
+📦 Biblioteca SDL2 e SDL2-Mixer
 Verifique se o GCC e o Make estão instalados:
 
 ```
@@ -50,6 +51,11 @@ Se não estiverem, instale com:
 
 ```
 sudo apt install build-essential
+```
+Instale a biblioteca sdl e suas dependências:
+
+```
+sudo apt install libsdl2-dev libsdl2-mixer-dev libvorbisfile3 libmpg123-0
 ```
 Clonando o repositório
 ```
