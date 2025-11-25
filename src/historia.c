@@ -25,13 +25,13 @@ void iniciar_historia() {
     textoAnimado("Guilherme — o ultimo aprendiz da Razão.", 50000);
     screenClear();
 
-    textoAnimado("Sua missão: resgatar o Princeso Diego, perdido nas trevas da contradição.", 50000);
+    textoAnimado("Sua missão: resgatar Diego, perdido nas trevas da contradição.", 50000);
     textoAnimado("Salve-o, para que a lógica renasça no mundo.", 50000);
 
     timerInit(3000);
     while (!timerTimeOver());
 
-    textoAnimado("\n[NARRADOR] A jornada começa...", 50000);
+    textoAnimado("\n[NARRADOR] A jornada começa...", 5000);
 
     timerInit(2000);
     while (!timerTimeOver());
