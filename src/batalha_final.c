@@ -5,6 +5,7 @@
 #include "timer.h"
 #include "screen.h"
 #include "historia.h"
+#include "som.h"
 
 
 void contextualizacaoFinal() {
@@ -58,7 +59,7 @@ void contextualizacaoFinal() {
     printf("\033[10;81H");
     textoAnimado("[Guilherme]: Eu renasci daquele que jamais apagou!", 50000);
     printf("\033[11;81H");
-    textoAnimado("Você é apenas uma criatura corrompida que roubou sua luz!", 50000);
+    textoAnimado("Você é apenas uma criatura corrompida que perdeu a razão, a lógica!", 50000);
     
     printf("\033[13;81H");
     textoAnimado("Diego, eu sei que você pode me ouvir... não desista!", 50000);
@@ -75,9 +76,9 @@ void contextualizacaoFinal() {
     textoAnimado("[Guilherme]: Não se preocupe Diego, a luz da lógica voltará ao mundo.", 50000);
     
     printf("\033[22;81H");
-    textoAnimado("Eu só preciso derrotar esse monstro e tornar", 50000);
+    textoAnimado("Eu só preciso derrotar esse monstro e ", 50000);
     printf("\033[23;81H");
-    textoAnimado("minha alma equivalente à sua novamente...", 50000);
+    textoAnimado("devolver a luz da logica ao seu coração...", 50000);
     
     printf("\033[25;81H");
     textoAnimado("Eu não posso falhar. Eu só preciso encontrar a equivalência mais uma vez...", 50000);
@@ -216,7 +217,7 @@ void iniciarBatalhaFinal(Jogador *jogador) {
 
     textoAnimado("Prepare-se para o desafio final!\n", 15000);
     timerInit(1500);
-    while (!timerTimeOver());
+    while (!timerTimeOver())
 
     for (int i = 1; i <= 5; i++) {
         printf(C_CYAN C_BOLD "\nDesafio Final %d/5:\n" C_RESET, i);
@@ -240,6 +241,7 @@ void iniciarBatalhaFinal(Jogador *jogador) {
             screenClear();
             textoAnimado("\nVocê caiu... o caos domina tudo...\n", 50000);
             mostrarGameOver();
+            tocarGameOver();
             return;
         }
     }
