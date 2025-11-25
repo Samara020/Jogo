@@ -2,8 +2,6 @@
 #include "batalha_final.h"
 #include <unistd.h>
 
-#include "som.h"
-
 void inicializarJogador(Jogador *j, int capacidade) {
     j->capacidadeRegistro = capacidade;
     j->entradasAtuais = 0;
@@ -147,7 +145,7 @@ printf("⠀⠀⠀⠀⠉⠋⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         }
 
         case 4:
-            printf(C_YELLOW "Voz do corrompido: Nessa luta, voce vai para o inferno e eu tambem irei \n> " C_RESET);
+            printf(C_YELLOW "Voz do corrompido: Nessa luta, voce irá se perder na contradição e sucumbirá ao caos \n> " C_RESET);
 printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
 printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⣠⣟⣯⣶⣾⣿⣧⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
 printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣾⣿⡿⣿⡟⠙⠒⣭⣿⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
@@ -257,7 +255,6 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
         } else {
             screenClear();
-            tocarRespostaErrada();
             printf(C_RED C_BOLD "\n✖ Resposta incorreta!\n" C_RESET);
             int dano = inimigo->ataque + (3 * nivel);
             jogador->vida -= dano;
@@ -301,7 +298,6 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
         if (jogador->vida <= 0) {
             mostrarGameOver();
-            tocarGameOver();
             fflush(stdout);
             sleep(1);
 printf("                                                                       \n");
@@ -332,7 +328,6 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀
         }
 
         if (inimigo->vida <= 0) {
-            tocarVitoria();
             textoAnimado(C_GREEN "\nA luz prevalece! O inimigo foi derrotado.\n" C_RESET, 20000);
             fflush(stdout);
             sleep(1);
