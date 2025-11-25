@@ -41,6 +41,8 @@ Certifique-se de ter instalado:
 🧰 Make
 📦 Biblioteca CLI-lib
 📦 Biblioteca SDL2 e SDL2-Mixer
+
+
 Verifique se o GCC e o Make estão instalados:
 
 ```
@@ -55,7 +57,8 @@ sudo apt install build-essential
 Instale a biblioteca sdl e suas dependências:
 
 ```
-sudo apt install libsdl2-dev libsdl2-mixer-dev libvorbisfile3 libmpg123-0
+sudo apt install libsdl2-dev
+sudo apt install libsdl2-mixer-dev
 ```
 Clonando o repositório
 ```
@@ -150,3 +153,4 @@ Indicadores de vitória ou derrota
 ### Licença
 
 Este arquivo está sobre Licença - confira a licença em [LICENSE.md](https://github.com/Samara020/Jogo?tab=License-1-ov-file) para mais detalhes
+
