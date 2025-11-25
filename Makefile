@@ -1,7 +1,6 @@
 IDIR = include
 ODIR = obj
 
-# Compilador
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -I$(IDIR)
 
@@ -9,7 +8,6 @@ SDL_CFLAGS = $(shell pkg-config --cflags sdl2 SDL2_mixer)
 
 SDL_LIBS = $(shell pkg-config --libs sdl2 SDL2_mixer)
 
-# CFLAGS combinados para a compilação de .c
 CFLAGS += $(SDL_CFLAGS)
 
 LIBS = $(SDL_LIBS) -lm
