@@ -299,7 +299,7 @@ void iniciarBatalhaFinal(Jogador *jogador) {
     Inimigo chefeFinal;
     strcpy(chefeFinal.nome, "Criatura do Caos");
     chefeFinal.vida = 100;
-    chefeFinal.ataque = 20;
+    chefeFinal.ataque = 35;
 
     contextualizacaoFinal();
 
@@ -327,7 +327,7 @@ void iniciarBatalhaFinal(Jogador *jogador) {
         timerInit(2000);
         while (!timerTimeOver());
         
-        if (jogador->vida <= 40) {
+        if (jogador->vida <= 0) {
             screenClear();
             textoAnimado("\nVocê caiu... o caos domina tudo...\n", 50000);
             mostrarGameOver();
@@ -339,3 +339,4 @@ void iniciarBatalhaFinal(Jogador *jogador) {
     textoAnimado("\n" C_GREEN C_BOLD "Você libertou Diego! A lógica renasce!\n" C_RESET, 100000);
     historiaFinal();
 }
+
