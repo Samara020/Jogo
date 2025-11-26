@@ -44,7 +44,7 @@ void mostrarGameOver() {
     printf("╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝╚██████╔╝███████╗██║  ██║\n");
     printf(" ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝\n");
     printf(C_RESET);
-    textoAnimado(C_RED "\nVocê caiu nas sombras... o Princeso Diego continuará perdido.\n" C_RESET, 20000);
+    textoAnimado(C_RED "\nVocê caiu nas sombras... o Diego continuará perdido.\n" C_RESET, 20000);
 }
 
 int perguntas(int nivel) {
@@ -398,3 +398,4 @@ printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     
     finalizarJogador(jogador);
 }
+
