@@ -11,6 +11,7 @@ int main() {
     inicializarAudio();
     tocarAudioTemaFundo();
     iniciar_historia();
+    primeiracena();
     iniciarBatalha(&j, &i);
     sleep((5));
     return 0;
