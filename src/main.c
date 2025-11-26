@@ -3,6 +3,7 @@
 #include "batalha.h"
 #include "historia.h"
 #include "som.h"
+#include "movimento.h"
 
 int main() {
     Jogador j = {"Guilherme", 100, 20, 10, 0, NULL, 0, 0}; 
