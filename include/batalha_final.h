@@ -5,6 +5,6 @@
 
 void iniciarBatalhaFinal(Jogador *jogador);
 int perguntaFinal();
-void cutsceneFinal();
+
 
 #endif
